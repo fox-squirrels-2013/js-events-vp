@@ -1,24 +1,24 @@
 $(document).ready(function() {
 
   var todoTemplate = $.trim($('#todo_template').html());
-  
+
   function bindEvents() {
-    console.log("started")
-    $('.add').bind('click', function(e){
-    var task = $('input').val()
-    console.log('html', todo_template)
-    console.log(task)
-    console.log($('h2').val())
-    // .replaceWith(task)
-    // $('#todo_template').css('display', 'inline')
-    $('.todo_list').append(todoTemplate)
 
-    // ('style', 'list-item')
+    $('.add').on('click', function(){
+      var task = $('input').val()
+      $('.todo_list').append(buildTodo(task))
+
+      // clears the input box
+      $('input').val('')
     })
-
-
-    // add an event listener for click on delete, complete
-    // .remove()
+    $('.todo_list').on('click', '.delete', function(e){
+      $(this).closest('.todo').remove()
+      e.preventDefault()
+    })
+     $('.todo_list').on('click', '.complete', function(e){
+      $(this).closest('.todo').addClass('complete')
+      e.preventDefault()
+    })
 
     // Bind functions which add, remove, and complete todos to the appropriate
     // elements
@@ -26,24 +26,15 @@ $(document).ready(function() {
 
   //Create functions to add, remove and complete todos
 
-  
-
-
-
-
-
-
-
-
-  // function buildTodo(todoName) {
-  //   // Creates an jQueryDOMElement from the todoTemplate.
-  //   // console.log(todoName)
-  //   var $todo = $(todoTemplate);
-  //   // Modifies it's text to use the passed in todoName.
-  //   $todo.find('h2').text(todoName);
-  //   // Returns the jQueryDOMElement to be used elsewhere.
-  //   return $todo;
-  // }
+  function buildTodo(todoName) {
+    // Creates an jQueryDOMElement from the todoTemplate.
+    // console.log(todoName)
+    var $todo = $(todoTemplate);
+    // Modifies it's text to use the passed in todoName.
+    $todo.find('h2').text(todoName);
+    // Returns the jQueryDOMElement to be used elsewhere.
+    return $todo;
+  }
 
   bindEvents();
 });
