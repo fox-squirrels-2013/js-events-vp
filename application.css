@@ -1,3 +1,7 @@
+body {
+  font-family: 'Average Sans', sans-serif;
+}
+
 #todo {
   width: 200px;
   margin-left: auto;
@@ -8,6 +12,35 @@
   text-align: center;
 }
 
+.todo_list {
+  width: 200%;
+  margin: none;
+  text-align: center;
+  text-indent: 
+}
+
+h2 {
+  font-size: 23px;
+}
+
 .todo.complete h2 {
   text-decoration: line-through;
+}
+
+ul {
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: red;
 }

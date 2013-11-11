@@ -1,18 +1,22 @@
 $(document).ready(function() {
-console.log("ha")
 
   var todoTemplate = $.trim($('#todo_template').html());
-  // var task = $('.todo').html()
-  // var task = $('#todo.text').text()
   
   function bindEvents() {
     console.log("started")
-    $('.add').on('click', function(e){
-    console.log(todo_template)
-    // $('.todo_list').append(todo_template)
+    $('.add').bind('click', function(e){
+    var task = $('input').val()
+    console.log('html', todo_template)
+    console.log(task)
+    console.log($('h2').val())
+    // .replaceWith(task)
+    // $('#todo_template').css('display', 'inline')
+    $('.todo_list').append(todoTemplate)
+
+    // ('style', 'list-item')
     })
 
-    
+
     // add an event listener for click on delete, complete
     // .remove()
 
